@@ -1,0 +1,23 @@
+name: Releases
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v2
+    - name: install cppunit
+      run: sudo apt install -y libcppunit-dev libalut-dev libsdl1.2-dev libglut-dev
+    - name: make
+      run: make
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/*,data/*"
+        token: ${{ secrets.GITHUB_TOKEN }}
