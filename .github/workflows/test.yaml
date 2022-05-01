@@ -10,7 +10,7 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - name: install cppunit
-        run: sudo apt install -y libcppunit-dev libalut-dev libsdl1.2-dev libglut-dev
+        run: sudo apt install -y libcppunit-dev libalut-dev libsdl1.2-dev freeglut3-dev
       - name: make
         run: make
       - name: make test
