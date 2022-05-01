@@ -1,0 +1,19 @@
+name: Doxygen GitHub Pages Deploy Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: mkdir
+        run: mkdir -p docs/html
+      - uses: DenverCoder1/doxygen-github-pages-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config_file: doxygen.conf
