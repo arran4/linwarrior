@@ -13,5 +13,3 @@ jobs:
         run: sudo apt install -y libcppunit-dev libalut-dev libsdl1.2-dev freeglut3-dev libglew-dev
       - name: make
         run: make all
-      - name: make test
-        run: make test
